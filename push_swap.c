@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:20:06 by acohen            #+#    #+#             */
-/*   Updated: 2024/09/25 22:33:24 by acohen           ###   ########.fr       */
+/*   Updated: 2024/09/26 16:45:51 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 		ft_printf("Error\n");
 		return (1);
 	}
-	ft_printf("%i\n", array[0]);
+	ft_printf("%i, %i, %i\n", array[0], array[1], array[2]);
 	// if (check_dups(array, argc) == 0)
 	// {
 	// 	ft_printf ("Error\n");

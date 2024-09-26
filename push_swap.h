@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:25:14 by acohen            #+#    #+#             */
-/*   Updated: 2024/09/25 22:01:27 by acohen           ###   ########.fr       */
+/*   Updated: 2024/09/26 16:39:15 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int				ft_lstsize(t_node *lst);
 t_node			*ft_lstlast(t_node *lst);
 void			ft_lstadd_back(t_node **lst, t_node *new);
 void			ft_lstclear(t_node **lst, void (*del)(void*));
-void			ft_lstdelone(t_node *lst, void (*del)(void*));
+void			ft_lstdelone(t_node *lst);
 void			ft_lstiter(t_node *lst, void (*f)(void *));
 t_node			*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *));
 void			ft_bzero(void *s, size_t n);
