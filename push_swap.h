@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:25:14 by acohen            #+#    #+#             */
-/*   Updated: 2024/09/26 16:39:15 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/01 17:05:15 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
 
 typedef struct t_node
 {
-	void				*content;
+	int				content;
 	struct t_node		*next;
 }						t_node;
 
 typedef struct t_stack
 {
 	int				size;
-	t_node			**top;
+	t_node			*top;
 }					t_stack;
 
 unsigned int	ft_print_pointer(void *p);
@@ -42,21 +42,23 @@ int				str_to_int_array(char **string, int size, int *int_array);
 int				ft_atoi(const char *str);
 void			*ft_calloc(size_t nmemb, size_t size);
 int				ft_isdigit(int c);
-t_node			*ft_lstnew(void *content);
+t_node			*ft_lstnew(int content);
 void			ft_lstadd_front(t_node **lst, t_node *new);
 int				ft_lstsize(t_node *lst);
 t_node			*ft_lstlast(t_node *lst);
 void			ft_lstadd_back(t_node **lst, t_node *new);
-void			ft_lstclear(t_node **lst, void (*del)(void*));
+void			ft_lstclear(t_node **lst, void (*del)(t_node*));
 void			ft_lstdelone(t_node *lst);
-void			ft_lstiter(t_node *lst, void (*f)(void *));
-t_node			*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *));
+// void			ft_lstiter(t_node *lst, void (*f)(void *));
+// t_node			*ft_lstmap(t_node *lst, void *(*f)(void *), void (*del)(void *));
 void			ft_bzero(void *s, size_t n);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_putstr_fd(char *str, int fd);
 size_t			ft_strlen(const char *str);
 void			*ft_memset(void *s, int c, size_t n);
-
+void			array_to_stack(int *array, int size, t_stack *stack);
+void			print_node(t_node *node);
+void			print_stack(t_stack *stack);
 
 #endif

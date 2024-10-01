@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 17:43:18 by acohen            #+#    #+#             */
-/*   Updated: 2024/09/25 21:37:51 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/01 17:02:37 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,16 @@ int	check_dups(int *array, int size)
 	int	i2;
 	int	check;
 
-	i1 = 2;
+	i1 = 0;
+	i2 = 0;
 	check = 1;
-	while (i1 < size)
+	while (i1 < size -1 && size > 1 && check == 1)
 	{
+		ft_printf("%i:%i\n", i1, array[i1]);
 		i2 = i1 + 1;
-		while (i2 <= size)
+		while (i2 < size && check == 1)
 		{
-			if (array[i1] != array[i2])
+			if (array[i1] == array[i2])
 				check = 0;
 			i2++;
 		}
@@ -64,13 +66,3 @@ int	check_dups(int *array, int size)
 	return (check);
 }
 
-void	del_node(t_node node)
-{
-	free (node.content);
-	free (node.next);
-}
-
-void	del_stack(t_stack stack)
-{
-	ft_lstclear(stack.top, (void *)del_node);
-}

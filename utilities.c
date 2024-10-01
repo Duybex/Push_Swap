@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:48:17 by acohen            #+#    #+#             */
-/*   Updated: 2024/09/26 16:45:58 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/01 17:05:01 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,27 +32,47 @@ int	str_to_int_array(char **string, int size, int *int_array)
 	return (check);
 }
 
-t_stack	array_to_stack(int *array, int size)
+void	array_to_stack(int *array, int size, t_stack *stack)
 {
 	int		i;
-	t_stack	stack;
 	t_node	*temp;
 
-	i = size - 1;
-	stack.size = 0;
-	stack.top = NULL;
+	i = size - 2;
+	stack->size = 0;
+	stack->top = NULL;
 	while (i >= 0) 
 	{
 		temp = ft_lstnew(array[i]);
 		if (temp == NULL)
 		{
-			ft_lstclear(stack.top, ft_lstdelone);
-			return(stack);
+			ft_lstclear(&stack->top, ft_lstdelone);
+			break;
 		}
-		ft_lstadd_front(stack.top, temp);
+		ft_lstadd_front(&stack->top, temp);
 		i--;
+		stack->size = stack->size + 1;
 	}
-	return(stack);
+}
+
+void	print_node(t_node *node)
+{
+	ft_printf("%i\n", node->content);
+}
+
+void	print_stack(t_stack *stack)
+{
+	t_node	*current;
+	int		i;
+
+	i = stack->size;
+	current = stack->top;
+	
+	while (i > 0)
+	{
+		print_node(current);
+		i--;
+		current = current->next;
+	}
 }
 
 // void	push(t_stack t_stack, int num)

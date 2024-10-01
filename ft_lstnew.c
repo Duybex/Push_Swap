@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:35:51 by acohen            #+#    #+#             */
-/*   Updated: 2024/09/25 21:39:13 by acohen           ###   ########.fr       */
+/*   Updated: 2024/09/26 17:29:32 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-t_node	*ft_lstnew(void *content)
+t_node	*ft_lstnew(int content)
 {
 	t_node	*node;
 
@@ -22,6 +22,6 @@ t_node	*ft_lstnew(void *content)
 	if (node == NULL)
 		return (NULL);
 	node->next = NULL;
-	node->content = (void *)content;
+	node->content = content;
 	return (node);
 }
