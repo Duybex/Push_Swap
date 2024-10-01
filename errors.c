@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 17:43:18 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/01 17:02:37 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/01 17:06:00 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	check_dups(int *array, int size)
 	check = 1;
 	while (i1 < size -1 && size > 1 && check == 1)
 	{
-		ft_printf("%i:%i\n", i1, array[i1]);
 		i2 = i1 + 1;
 		while (i2 < size && check == 1)
 		{
