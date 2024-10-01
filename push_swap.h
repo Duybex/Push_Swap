@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:25:14 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/01 18:06:45 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/01 21:02:51 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void			*ft_memset(void *s, int c, size_t n);
 void			array_to_stack(int *array, int size, t_stack *stack);
 void			print_node(t_node *node);
 void			print_stack(t_stack *stack);
-void			malloc_stacks(t_stack *a, t_stack *b);
+void			ini_stacks(t_stack *a, t_stack *b);
 void			free_all(t_stack *a, t_stack *b);
 void			sa(t_stack *a);
 void			sb(t_stack *b);
@@ -73,6 +73,6 @@ void			rr(t_stack *a, t_stack *b);
 void			rra(t_stack *a);
 void			rrb(t_stack *b);
 void			rrr(t_stack *a, t_stack *b);
-t_node			*ft_lstonetolast(t_node *lst)
+t_node			*ft_lstonetolast(t_node *lst);
 
 #endif

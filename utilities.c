@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:48:17 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/01 17:46:41 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/01 21:02:25 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,12 @@ void	print_stack(t_stack *stack)
 	}
 }
 
-void	malloc_stacks(t_stack *a, t_stack *b)
+void	ini_stacks(t_stack *a, t_stack *b)
 {
-	a = malloc(sizeof(t_node) + __SIZEOF_INT__);
-	b = malloc(sizeof(t_node) + __SIZEOF_INT__);
-	if (a && b)
-	{
 		a->size = 0;
 		b->size = 0;
 		a->top = NULL;
 		b->top = NULL;
-	}
 }
 
 void	free_all(t_stack *a, t_stack *b)

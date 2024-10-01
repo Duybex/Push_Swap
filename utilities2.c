@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 17:19:30 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/01 18:12:27 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/01 21:18:30 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,30 @@
 void	sa(t_stack *a)
 {
 	t_node	*temp;
+	t_node	*temp2;
 
 	if (a->size > 1)
 	{
 		temp = a->top;
+		temp2 = a->top->next->next;
 		a->top = a->top->next;
 		a->top->next = temp;
+		a->top->next->next = temp2;
 	}
 }
 
 void	sb(t_stack *b)
 {
 	t_node	*temp;
+	t_node	*temp2;
 
 	if (b->size > 1)
 	{
 		temp = b->top;
+		temp2 = b->top->next->next;
 		b->top = b->top->next;
 		b->top->next = temp;
+		b->top->next->next = temp2;
 	}
 }
 
@@ -78,7 +84,6 @@ void	pb(t_stack *a, t_stack *b)
 
 void	ra(t_stack *a)
 {
-	t_node	*temp;
 	t_node	*old_top;
 	if (a->size > 1)
 	{
