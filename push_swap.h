@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:25:14 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/02 17:36:14 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/02 22:12:08 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct t_node
 	int				content;
 	int				index;
 	struct t_node	*next;
+	struct t_node	*previous;
 }					t_node;
 
 typedef struct t_stack
@@ -44,7 +45,7 @@ int				ft_atoi(const char *str);
 void			*ft_calloc(size_t nmemb, size_t size);
 int				ft_isdigit(int c);
 t_node			*ft_lstnew(int content);
-void			ft_lstadd_front(t_node **lst, t_node *new);
+void			ft_lstadd_front(t_stack *stack, t_node *new);
 int				ft_lstsize(t_node *lst);
 t_node			*ft_lstlast(t_node *lst);
 void			ft_lstadd_back(t_node **lst, t_node *new);

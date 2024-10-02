@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:48:17 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/02 17:37:09 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/02 22:30:51 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	array_to_stack(int *array, int size, t_stack *stack)
 			ft_lstclear(&stack->top, ft_lstdelone);
 			break;
 		}
-		ft_lstadd_front(&stack->top, temp);
+		ft_lstadd_front(stack, temp);
 		i--;
 		stack->size = stack->size + 1;
 	}
@@ -56,7 +56,7 @@ void	array_to_stack(int *array, int size, t_stack *stack)
 
 void	print_node(t_node *node)
 {
-	ft_printf("%i\n", node->index);
+	ft_printf("index:%i, content:%i\n", node->index, node->content);
 }
 
 void	print_stack(t_stack *stack)
@@ -70,9 +70,12 @@ void	print_stack(t_stack *stack)
 	while (i > 0)
 	{
 		print_node(current);
+		if (i != stack->size)
+			ft_printf("previous index:%i, previous content:%i\n", current->previous->index, current->previous->content);
 		i--;
 		current = current->next;
 	}
+	
 }
 
 void	ini_stacks(t_stack *a, t_stack *b)

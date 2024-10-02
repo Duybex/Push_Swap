@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 17:18:22 by acohen            #+#    #+#             */
-/*   Updated: 2024/09/25 21:38:33 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/02 22:23:11 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-void	ft_lstadd_front(t_node **lst, t_node *new)
+void	ft_lstadd_front(t_stack *stack, t_node *new)
 {
-	new->next = *lst;
-	*lst = new;
+	if(stack->top)
+		stack->top->previous = new;
+	new->next = stack->top;
+	stack->top = new;
 }

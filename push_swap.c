@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:20:06 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/02 17:41:03 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/02 22:31:33 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 void	test(t_stack *a)
 {
-	ft_printf("a:");
+	ft_printf("a:\n");
 	print_stack(a);
 	indexing(a);
-	ft_printf("a:");
+	ft_printf("a:\n");
 	print_stack(a);
 }
 
@@ -57,5 +57,5 @@ int	main(int argc, char *argv[])
 	array_to_stack(array, argc, a);
 	test(a);
 	free_all(a, b);
-	return (1);
+	return (0);
 }

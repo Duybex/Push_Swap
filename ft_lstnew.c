@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 16:35:51 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/02 17:11:05 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/02 21:57:48 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ t_node	*ft_lstnew(int content)
 {
 	t_node	*node;
 
-	node = malloc(2 * __SIZEOF_INT__ + __SIZEOF_POINTER__);
+	node = malloc(sizeof(t_node));
 	if (node == NULL)
 		return (NULL);
 	node->next = NULL;
+	node->previous = NULL;
 	node->content = content;
 	node->index = -1;
 	return (node);
