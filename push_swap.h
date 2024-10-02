@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:25:14 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/01 21:02:51 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/02 17:36:14 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,15 @@
 typedef struct t_node
 {
 	int				content;
-	struct t_node		*next;
-}						t_node;
+	int				index;
+	struct t_node	*next;
+}					t_node;
 
 typedef struct t_stack
 {
-	int				size;
-	t_node			*top;
-}					t_stack;
+	int		size;
+	t_node	*top;
+}			t_stack;
 
 unsigned int	ft_print_pointer(void *p);
 int				ft_print_hex(unsigned int num, int is_upper, int count);
@@ -74,5 +75,8 @@ void			rra(t_stack *a);
 void			rrb(t_stack *b);
 void			rrr(t_stack *a, t_stack *b);
 t_node			*ft_lstonetolast(t_node *lst);
+void			indexing(t_stack *a);
+int				find_unindexed_min(t_stack *a);
+void			write_index(t_stack *a, int min, int i);
 
 #endif

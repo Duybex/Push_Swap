@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:48:17 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/01 21:02:25 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/02 17:37:09 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	array_to_stack(int *array, int size, t_stack *stack)
 
 void	print_node(t_node *node)
 {
-	ft_printf("%i\n", node->content);
+	ft_printf("%i\n", node->index);
 }
 
 void	print_stack(t_stack *stack)
