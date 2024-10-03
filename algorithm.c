@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/02 16:53:59 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/02 17:41:49 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/03 16:52:59 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	indexing(t_stack *a)
 	int	i;
 
 	i = 0;
-	while (i < a->size)
+	while (i < a->size_a)
 	{
 		min = find_unindexed_min(a);
 		write_index(a, min, i);
@@ -32,7 +32,7 @@ int	find_unindexed_min(t_stack *a)
 	long	min;
 	
 	min = __LONG_MAX__;
-	temp = a->top;
+	temp = a->top_a;
 	while (temp)
 	{
 		if (temp->content < min && temp->index == -1)
@@ -46,7 +46,7 @@ void	write_index(t_stack *a, int min, int i)
 {
 	t_node	*temp;
 
-	temp = a->top;
+	temp = a->top_a;
 	while (temp)
 	{
 		if (temp->content == min)

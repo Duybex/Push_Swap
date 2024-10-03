@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:25:14 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/02 22:12:08 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/03 16:55:55 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ typedef struct t_node
 
 typedef struct t_stack
 {
-	int		size;
-	t_node	*top;
+	int		size_a;
+	int		size_b;
+	t_node	*top_a;
+	t_node	*top_b;
 }			t_stack;
 
 unsigned int	ft_print_pointer(void *p);
@@ -62,22 +64,22 @@ void			*ft_memset(void *s, int c, size_t n);
 void			array_to_stack(int *array, int size, t_stack *stack);
 void			print_node(t_node *node);
 void			print_stack(t_stack *stack);
-void			ini_stacks(t_stack *a, t_stack *b);
-void			free_all(t_stack *a, t_stack *b);
-void			sa(t_stack *a);
-void			sb(t_stack *b);
-void			ss(t_stack *a, t_stack *b);
-void			pa(t_stack *a, t_stack *b);
-void			pb(t_stack *a, t_stack *b);
-void			ra(t_stack *a);
-void			rb(t_stack *b);
-void			rr(t_stack *a, t_stack *b);
-void			rra(t_stack *a);
-void			rrb(t_stack *b);
-void			rrr(t_stack *a, t_stack *b);
+void			ini_stacks(t_stack *stack);
+void			free_all(t_stack *stack);
+void			sa(t_stack *stack);
+void			sb(t_stack *stack);
+void			ss(t_stack *stack);
+void			pa(t_stack *stack);
+void			pb(t_stack *stack);
+void			ra(t_stack *stack);
+void			rb(t_stack *stack);
+void			rr(t_stack *stack);
+void			rra(t_stack *stack);
+void			rrb(t_stack *stack);
+void			rrr(t_stack *stack);
 t_node			*ft_lstonetolast(t_node *lst);
-void			indexing(t_stack *a);
-int				find_unindexed_min(t_stack *a);
-void			write_index(t_stack *a, int min, int i);
+void			indexing(t_stack *stack);
+int				find_unindexed_min(t_stack *stack);
+void			write_index(t_stack *stack, int min, int i);
 
 #endif

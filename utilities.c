@@ -6,7 +6,7 @@
 /*   By: acohen <acohen@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 15:48:17 by acohen            #+#    #+#             */
-/*   Updated: 2024/10/02 22:30:51 by acohen           ###   ########.fr       */
+/*   Updated: 2024/10/03 18:12:57 by acohen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,19 @@ void	array_to_stack(int *array, int size, t_stack *stack)
 	t_node	*temp;
 
 	i = size - 2;
-	stack->size = 0;
-	stack->top = NULL;
+	stack->size_a = 0;
+	stack->top_a = NULL;
 	while (i >= 0) 
 	{
 		temp = ft_lstnew(array[i]);
 		if (temp == NULL)
 		{
-			ft_lstclear(&stack->top, ft_lstdelone);
+			ft_lstclear(&stack->top_a, ft_lstdelone);
 			break;
 		}
 		ft_lstadd_front(stack, temp);
 		i--;
-		stack->size = stack->size + 1;
+		stack->size_a = stack->size_a + 1;
 	}
 }
 
@@ -64,34 +64,47 @@ void	print_stack(t_stack *stack)
 	t_node	*current;
 	int		i;
 
-	i = stack->size;
-	current = stack->top;
+	i = stack->size_a;
+	current = stack->top_a;
 	
 	while (i > 0)
 	{
 		print_node(current);
-		if (i != stack->size)
+		if (i != stack->size_a)
 			ft_printf("previous index:%i, previous content:%i\n", current->previous->index, current->previous->content);
+		i--;
+		current = current->next;
+	}
+	
+	i = stack->size_b;
+	current = stack->top_b;
+	ft_printf("b:\n");
+	ft_printf("size: %i\n", stack->size_b);
+	
+	while (i > 0)
+	{
+		print_node(current);
+		if (i != stack->size_b)
+			ft_printf("previous index:%i, previous content:%i\n", current->index, current->content);
 		i--;
 		current = current->next;
 	}
 	
 }
 
-void	ini_stacks(t_stack *a, t_stack *b)
+void	ini_stacks(t_stack *stack)
 {
-		a->size = 0;
-		b->size = 0;
-		a->top = NULL;
-		b->top = NULL;
+		stack->size_a = 0;
+		stack->size_b = 0;
+		stack->top_a = NULL;
+		stack->top_b = NULL;
 }
 
-void	free_all(t_stack *a, t_stack *b)
+void	free_all(t_stack *stack)
 {
-	ft_lstclear(&a->top, ft_lstdelone);
-	ft_lstclear(&b->top, ft_lstdelone);
-	free (a);
-	free (b);
+	ft_lstclear(&stack->top_a, ft_lstdelone);
+	ft_lstclear(&stack->top_b, ft_lstdelone);
+	free (stack);
 }
 
 // void	push(t_stack t_stack, int num)
